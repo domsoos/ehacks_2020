@@ -2,18 +2,29 @@
 <html>
 <head>
 	<title>Eye Diagnosis</title>
+	<link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Notable&display=swap" rel="stylesheet">
 	<link href = "styles.css" rel = "stylesheet" type = "">
 	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
 
+<<<<<<< HEAD
 	<script type = "text/javascript">
 		let sources = [];
+=======
+	
+	<script type = "text/javascript">	
+		let sources = ["main"];
+		
+>>>>>>> 095e872c7191fb8124647f81e1c17f38c4c5d65f
 		for (let index = 0; index < sources.length; index ++) {
 			let script = document.createElement("script");
 			script.setAttribute("type", "text/javascript");
 			script.setAttribute("src", String(sources[index] + ".js"));
 			document.head.appendChild(script);
 		}
+
+		
+
 		function setResult(val){
 			let p = val * 100;
 			let el = document.getElementById("textResult");
@@ -51,6 +62,61 @@
 			document.getElementById("results-page").style.display = "block";
 
 		}
+		
+		var playing= false;
+		var speed=0;
+		var level=0;
+
+		function waldo(){
+			playing=true;
+			let lisp = ["audio/drinking.wav","audio/spiders.wav","audio/scaring.mp3","audio/saveyou.wav"];
+			let walde = ((Math.floor(5 * Math.random())));
+			new Audio (lisp[walde]).play();
+		}
+		window.onload = function(){
+			var timestamp = null;
+			var lastMouseX = null;
+			var lastMouseY = null;
+			var egg = document.getElementById("egg");
+
+			document.getElementById("head-page").addEventListener("mousemove", function(e) {
+					if (timestamp === null) {
+							timestamp = Date.now();
+							lastMouseX = e.screenX;
+							lastMouseY = e.screenY;
+							return;
+					}
+
+					var now = Date.now();
+					var dt =  now - timestamp;
+					var dx = e.screenX - lastMouseX;
+					var dy = e.screenY - lastMouseY;
+					var speedX = Math.round(dx / dt * 100);
+					var speedY = Math.round(dy / dt * 100);
+					speed = Math.sqrt( (speedX*speedX) + (speedY*speedY) );
+					timestamp = now;
+					lastMouseX = e.screenX;
+					lastMouseY = e.screenY;
+
+			});
+			function doIt(){
+				level=(0.9 * (level+(speed/35)) - 0.8);
+				level = (level>100)? 100:((level<0)? 0:level);
+				egg.style.filter="opacity("+level+"%)";
+				if(playing){
+					egg.style.filter="opacity(0%)";
+					return null;
+				}
+				//console.log(level);
+				setTimeout(function(){ 
+					doIt();
+				}, 50);
+			}
+			egg.style.filter="opacity(0%)";
+			setTimeout(function(){ 
+					doIt();
+			}, 1000);
+		}
     </script>
 </head>
 <body onresize="resize()">
@@ -58,10 +124,11 @@
 		<a id="back2" class="backD"></a>
 		<a id="back3" class="backD"></a>
 		<div id="head-page-inner-div">
-			<button id="begin-button" href="#camera-page" onclick="location.hash = '#camera-page';">
+			<button id="begin-button" href="#camera-page" onclick="location.hash = '#camera-page';waldo();">
 				<img id="eey" onload="loadEyeBall();" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fpurepng.com%2Fpublic%2Fuploads%2Flarge%2Fpurepng.com-eyeseyesorgans-of-the-visual-systemorganisms-visionoptical-systemlightfocuseslensclipart-1421526883500k8ju0.png&f=1&nofb=1"/>
 			</button>
 		</div>
+		<a id="egg">Press the eye. Take a pic of your inner eye. Recieve a diagnosis</a>
 	</div>
 	<div id="play-page">
 		<div id="results-page">
@@ -91,6 +158,7 @@
 	<div id = "credits">
 		<a href="https://icons8.com/icon/42866/eye">Eye icon by Icons8</a>
 	</div>
+<<<<<<< HEAD
 	<script type = "text/javascript">
 	var video = document.getElementById('video');
 	var canvas = document.getElementById('canvas');
@@ -149,5 +217,45 @@
 				return canvas.toDataURL("image/png");
 		}
 		</script>
+=======
+	<div id=sound-box>
+		<audio id="s1"> <!--Source the audio file. -->
+			<source src="audio/metaphor.mp3" type="audio/mp3">
+		</audio>
+		<audio id="s2"> <!--Source the audio file. -->
+			<source src="audio/drinking.wav" type="audio/wav">
+		</audio>
+		<audio id="s3"> <!--Source the audio file. -->
+			<source src="audio/spiders.wav" type="audio/wav">
+		</audio>
+		<audio id="s4"> <!--Source the audio file. -->
+			<source src="audio/scaring.mp3" type="audio/mp3">
+			<source src="audio/scaring.ogg" type="audio/ogg">
+			<source src="audio/scaring.wav" type="audio/wav">
+		</audio>
+		<audio id="s5"> <!--Source the audio file. -->
+			<source src="audio/saveyou.wav" type="audio/wav">
+		</audio>
+	</div>>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+	<script type="text/javascript">
+		
+		(async () => {
+
+			const model = await tf.loadLayersModel("https://domsoos.github.io/projects/tfjs_model/model.json");
+
+			console.log(model.predict(tf.tensor2d([110], [1,1])).dataSync())
+		})();
+
+
+
+
+	</script>
+
+
+
+>>>>>>> 095e872c7191fb8124647f81e1c17f38c4c5d65f
 </body>
 </html>
