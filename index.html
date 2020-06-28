@@ -5,10 +5,9 @@
 	<link href="https://fonts.googleapis.com/css2?family=Notable&display=swap" rel="stylesheet">
 	<link href = "styles.css" rel = "stylesheet" type = "">
 	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
-	
-	<script type = "text/javascript">	
-		let sources = ["main"];
-		
+
+	<script type = "text/javascript">
+		let sources = [];
 		for (let index = 0; index < sources.length; index ++) {
 			let script = document.createElement("script");
 			script.setAttribute("type", "text/javascript");
@@ -28,7 +27,7 @@
 				el.innerHTML = "Do you feel sick? You look sick"+p+"%";
 			} else if(-1 < val && val <= -.8){
 				el.innerHTML = "Eat some vegetables for once. Jeez just look at that spot on your eye!"+p+"%";
-			} else{ 
+			} else{
 				el.innerHTML = "Looks like there is an error.<br>@Developers please make sure the input value ranges from -1 to 1";
 			}
 		}
@@ -44,7 +43,7 @@
 		function loadEyeBall(){
 			if(Math.random()  > 0.5){
 				document.getElementById("eey").src = "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fpurepng.com%2Fpublic%2Fuploads%2Flarge%2Fpurepng.com-eyeeyesorgans-of-the-visual-systemorganisms-visionoptical-systemlightfocuseslensclipart-1421526883367hqo5x.png&f=1&nofb=1";
-				
+
 			}
 		}
 		function takePicture(){
@@ -92,5 +91,63 @@
 	<div id = "credits">
 		<a href="https://icons8.com/icon/42866/eye">Eye icon by Icons8</a>
 	</div>
+	<script type = "text/javascript">
+	var video = document.getElementById('video');
+	var canvas = document.getElementById('canvas');
+	var context = canvas.getContext('2d');
+	var MODEL_URL = 'https://domsoos.github.io/projects/tfjs_model/model.json'
+
+
+	if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+			navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+					video.srcObject = stream;
+					video.play();
+			});
+	}
+	tf.loadLayersModel(MODEL_URL).then(function(model) {
+ 		window.model = model;
+		});
+	// (async () => {
+	//
+	// 	model = await tf.loadLayersModel(MODEL_URL);
+	// })();
+	document.getElementById("snap").addEventListener("click", function() {
+		var img = new Image();
+				img.src=gray(img);
+			//img.src = canvas.toDataURL("image/png");
+			img.onload = function () {
+				context.clearRect(0, 0, canvas.width, canvas.height);
+				context.drawImage(img,0,0,320,280);
+				const input = tf.browser.fromPixels(img);
+				console.log(window.model.summary());
+				const result = window.model.predict(input);
+				alert(result);
+			}
+			img.src = canvas.toDataURL("image/png")
+
+		}, false);
+
+		function gray(imgObj) {
+
+
+				var imgW = imgObj.width;
+				var imgH = imgObj.height;
+
+
+				context.drawImage(video, 0, 0,canvas.width,canvas.height);
+				var imgPixels = context.getImageData(0, 0, imgW+1000, imgH+1000);
+				for(var y = 0; y < imgPixels.height; y++){
+						for(var x = 0; x < imgPixels.width; x++){
+								var i = (y * 4) * imgPixels.width + x * 4;
+								var avg = (imgPixels.data[i] + imgPixels.data[i + 1] + imgPixels.data[i + 2]) / 3;
+								imgPixels.data[i] = avg;
+								imgPixels.data[i + 1] = avg;
+								imgPixels.data[i + 2] = avg;
+						}
+				}
+				context.putImageData(imgPixels, imgW, imgH);
+				return canvas.toDataURL("image/png");
+		}
+		</script>
 </body>
 </html>
