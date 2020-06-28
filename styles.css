@@ -161,10 +161,11 @@ html, body{
   font-size: 15px;
   text-align: center;
 }
-#text-page p{
+#text-page a, #textResult{
   display:grid;
   position: relative;
   top:55px;
+  font-family: 'Notable', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 #contact{
@@ -175,4 +176,7 @@ html, body{
 #credits{
   height:100vh;
   display:block;
+}
+#sound{
+  display:none;
 }

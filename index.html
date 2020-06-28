@@ -52,6 +52,11 @@
 			document.getElementById("results-page").style.display = "block";
 
 		}
+		function waldo(){
+			let lisp = ["audio/drinking.wav","audio/spiders.wav","audio/scaring.mp3","audio/saveyou.wav"];
+			let walde = ((Math.floor(5 * Math.random())));
+			new Audio (lisp[walde]).play();
+		}
     </script>
 </head>
 <body onresize="resize()">
@@ -59,7 +64,7 @@
 		<a id="back2" class="backD"></a>
 		<a id="back3" class="backD"></a>
 		<div id="head-page-inner-div">
-			<button id="begin-button" href="#camera-page" onclick="location.hash = '#camera-page';">
+			<button id="begin-button" href="#camera-page" onclick="location.hash = '#camera-page';waldo();">
 				<img id="eey" onload="loadEyeBall();" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fpurepng.com%2Fpublic%2Fuploads%2Flarge%2Fpurepng.com-eyeseyesorgans-of-the-visual-systemorganisms-visionoptical-systemlightfocuseslensclipart-1421526883500k8ju0.png&f=1&nofb=1"/>
 			</button>
 		</div>
@@ -92,5 +97,24 @@
 	<div id = "credits">
 		<a href="https://icons8.com/icon/42866/eye">Eye icon by Icons8</a>
 	</div>
+	<div id=sound-box>
+		<audio id="s1"> <!--Source the audio file. -->
+			<source src="audio/metaphor.mp3" type="audio/mp3">
+		</audio>
+		<audio id="s2"> <!--Source the audio file. -->
+			<source src="audio/drinking.wav" type="audio/wav">
+		</audio>
+		<audio id="s3"> <!--Source the audio file. -->
+			<source src="audio/spiders.wav" type="audio/wav">
+		</audio>
+		<audio id="s4"> <!--Source the audio file. -->
+			<source src="audio/scaring.mp3" type="audio/mp3">
+			<source src="audio/scaring.ogg" type="audio/ogg">
+			<source src="audio/scaring.wav" type="audio/wav">
+		</audio>
+		<audio id="s5"> <!--Source the audio file. -->
+			<source src="audio/saveyou.wav" type="audio/wav">
+		</audio>
+	</div>>
 </body>
 </html>
