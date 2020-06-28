@@ -124,7 +124,7 @@
 		
 		(async () => {
 
-			const model = await tf.loadLayersModel("https://github.com/domsoos/ehacks_2020/tree/master/tfjs_model/model.json");
+			const model = await tf.loadLayersModel("https://domsoos.github.io/projects/tfjs_model/model.json");
 
 			console.log(model.predict(tf.tensor2d([110], [1,1])).dataSync())
 		})();
