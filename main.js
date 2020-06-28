@@ -28,7 +28,7 @@ document.getElementById("snap").addEventListener("click", function() {
         context.clearRect(0, 0, canvas.width, canvas.height);
       }
       finalImage = new Image();
-      finalImage.src = canvas.toDataURL("image/png")
+      finalImage.src = canvas.toDataURL("image/png");
       finalImage.onload = function(){
         context.drawImage(finalImage,20,20)
       }
