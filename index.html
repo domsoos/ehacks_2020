@@ -5,10 +5,10 @@
 	<link href="https://fonts.googleapis.com/css2?family=Notable&display=swap" rel="stylesheet">
 	<link href = "styles.css" rel = "stylesheet" type = "">
 	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
-	
-	<script type = "text/javascript">	
+
+	<script type = "text/javascript">
 		let sources = ["main"];
-		
+
 		for (let index = 0; index < sources.length; index ++) {
 			let script = document.createElement("script");
 			script.setAttribute("type", "text/javascript");
@@ -28,7 +28,7 @@
 				el.innerHTML = "Do you feel sick? You look sick"+p+"%";
 			} else if(-1 < val && val <= -.8){
 				el.innerHTML = "Eat some vegetables for once. Jeez just look at that spot on your eye!"+p+"%";
-			} else{ 
+			} else{
 				el.innerHTML = "Looks like there is an error.<br>@Developers please make sure the input value ranges from -1 to 1";
 			}
 		}
@@ -44,7 +44,7 @@
 		function loadEyeBall(){
 			if(Math.random()  > 0.5){
 				document.getElementById("eey").src = "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fpurepng.com%2Fpublic%2Fuploads%2Flarge%2Fpurepng.com-eyeeyesorgans-of-the-visual-systemorganisms-visionoptical-systemlightfocuseslensclipart-1421526883367hqo5x.png&f=1&nofb=1";
-				
+
 			}
 		}
 		function takePicture(){
@@ -65,7 +65,7 @@
 		<div id="results-page">
 			<a id="textResult">Your eyes... they look... BROWN</a>
 			<div id="my_eyes_are_red">
-				<canvas id="canvas" ></canvas>
+				<canvas id="canvas" width = "320" height = "280"></canvas>
 				<image id="eye_chart" src = "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F4.bp.blogspot.com%2F-XoCPs82fiys%2FVePw_b5Q2AI%2FAAAAAAAAC24%2F_W-V5lX7JRk%2Fs1600%2Feyes%252B15.jpg&f=1&nofb=1">
 			</div>
 		</div>

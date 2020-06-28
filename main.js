@@ -17,21 +17,22 @@ document.getElementById("snap").addEventListener("click", function() {
   var img = new Image();
     img.src=gray(img);
     img.onload = function () {
-        var oc = document.createElement('canvas'),octx = oc.getContext('2d');
-        oc.width = 320;
-        oc.height = 280;
-        canvas.width = oc.width;
-        canvas.height = oc.height;
-        octx.drawImage(img, 0, 0, oc.width, oc.height);
-        octx.drawImage(oc, 0, 0, oc.width, oc.height);
-        context.drawImage(oc, 0, 0, oc.width, oc.height,0, 0, canvas.width, canvas.height);
-        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.drawImage(img,0,0);
+        // var oc = document.createElement('canvas'),octx = oc.getContext('2d');
+        // oc.width = 320;
+        // oc.height = 280;
+        // canvas.width = oc.width;
+        // canvas.height = oc.height;
+        // octx.drawImage(img, 0, 0, oc.width, oc.height);
+        // octx.drawImage(oc, 0, 0, oc.width, oc.height);
+        // context.drawImage(oc, 0, 0, oc.width, oc.height,0, 0, canvas.width, canvas.height);
+        //context.clearRect(0, 0, canvas.width, canvas.height);
       }
-      finalImage = new Image();
-      finalImage.src = canvas.toDataURL("image/png")
-      finalImage.onload = function(){
-        context.drawImage(finalImage,20,20)
-      }
+      // finalImage = new Image();
+      // finalImage.src = canvas.toDataURL("image/png");
+      // finalImage.onload = function(){
+      //   context.drawImage(finalImage,20,20)
+      // }
 
     var input = [];
   for(var i = 0; i < data.length; i += 4) {
