@@ -3,9 +3,9 @@ var canvas = document.getElementById('canvas');
 var height = canvas.height;
 var width = canvas.width;
 var context = canvas.getContext('2d');
-// tf.loadLayersModel(‘model/model.json’).then(function(model) {
-//   window.model = model;
-// });
+tf.loadLayersModel('model/model.json').then(function(model) {
+  window.model = model;
+});
 
 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
@@ -17,6 +17,7 @@ document.getElementById("snap").addEventListener("click", function() {
   var img = new Image();
     img.src=gray(img);
     img.onload = function () {
+
       context.drawImage(img,0,0);/*
         var oc = document.createElement('canvas'),octx = oc.getContext('2d');
         oc.width = 320;
@@ -38,6 +39,15 @@ document.getElementById("snap").addEventListener("click", function() {
   for(var i = 0; i < data.length; i += 4) {
     input.push(data[i + 2] / 255);
   }*/
+
+      context.drawImage(img,0,0);
+    
+
+    var input = [];
+  // for(var i = 0; i < data.length; i += 4) {
+  //   input.push(data[i + 2] / 255);
+  // }
+
 
   //predict(input);
   }, false);
