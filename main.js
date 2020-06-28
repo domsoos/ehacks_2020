@@ -15,13 +15,13 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 document.getElementById("snap").addEventListener("click", function() {
   var img = new Image();
   // Turns it to grayscale image
-    img.src=gray(img);
-    img.onload = function () {
+  img.src=gray(img);
+  img.onload = function () {
 
-      context.drawImage(img,0,0);
+  context.drawImage(img,0,0);
 
-    // Turn grayscale image into a 2D array
-    async loadLocalImage(img) {
+  // Turn grayscale image into a 2D array
+  async function loadLocalImage(img) {
       return new Promise((res,rej)=>{
       imageGet(filename, (err, info) => {
       if(err){
@@ -31,21 +31,28 @@ document.getElementById("snap").addEventListener("click", function() {
         const image = tf.fromPixels(info.data)
         console.log(image, '127');
         res(image);
-      });
-    }}
 
+      });// end imageGet function
+
+    })// end Promise function
+
+    };//end loadLocalImage function
+    
+  } // end onload function
+/*
     // 2D array sent through our model
-    const MODEL_URL = "https://github.com/domsoos/ehacks_2020/tree/master/tfjs_model"
+    const MODEL_URL = "https://github.com/domsoos/ehacks_2020/tree/master/tfjs_model/model.json";
     const model = await tf.loadLayersModel(MODEL_URL);
     console.log(model.summary());
     const input = tf.tensor2d([10.0],[1,1]);
     // Predict if it ishealthy or not
     const result = model.predict(input);
-    
+    console.log(result);
+
     // alert the results
     alert(result);
 
-      /*
+
         var oc = document.createElement('canvas'),octx = oc.getContext('2d');
         oc.width = 320;
         oc.height = 280;
@@ -55,7 +62,7 @@ document.getElementById("snap").addEventListener("click", function() {
         octx.drawImage(oc, 0, 0, oc.width, oc.height);
         context.drawImage(oc, 0, 0, oc.width, oc.height,0, 0, canvas.width, canvas.height);
         context.clearRect(0, 0, canvas.width, canvas.height);*/
-      }
+      
       //finalImage = new Image();
       //finalImage.src = canvas.toDataURL("image/png")
       //finalImage.onload = function(){

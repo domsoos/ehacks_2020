@@ -5,6 +5,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Notable&display=swap" rel="stylesheet">
 	<link href = "styles.css" rel = "stylesheet" type = "">
 	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+
 	
 	<script type = "text/javascript">	
 		let sources = ["main"];
@@ -169,5 +170,24 @@
 			<source src="audio/saveyou.wav" type="audio/wav">
 		</audio>
 	</div>>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+	<script type="text/javascript">
+		
+		(async () => {
+
+			const model = await tf.loadLayersModel("https://github.com/domsoos/ehacks_2020/tree/master/tfjs_model/model.json");
+
+			console.log(model.predict(tf.tensor2d([110], [1,1])).dataSync())
+		})();
+
+
+
+
+	</script>
+
+
+
 </body>
 </html>
