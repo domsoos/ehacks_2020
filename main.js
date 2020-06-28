@@ -10,12 +10,15 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     });
 }
 document.getElementById("snap").addEventListener("click", function() {
-	canvas.drawImage(video, 0, 0, 640, 480);
-    image = convertCanvasToImage(canvas);
-});
-
-function convertCanvasToImage(canvas) {
-	var image = new Image();
-	image.src = canvas.toDataURL("image/png");
-	return image;
-}
+  var img = new Image();
+  img.onload = function() {
+    context.drawImage(video, 0, 0, 28, 28);
+    data = context.getImageData(0, 0, 28, 28).data;
+    var input = [];
+    for(var i = 0; i < data.length; i += 4) {
+      input.push(data[i + 2] / 255);
+    }
+    //predict(input);
+  };
+  img.src = canvas.toDataURL('image/png');
+  }, false);
