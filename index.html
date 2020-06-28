@@ -17,7 +17,8 @@
 			script.setAttribute("src", String(sources[index] + ".js"));
 			document.head.appendChild(script);
 		}
-		
+
+
 
 		function setResult(val){
 			let p = val * 100;
@@ -56,19 +57,16 @@
 			document.getElementById("results-page").style.display = "block";
 
 		}
-		
-		var playing= false; 
+
+		var playing= false;
 		var speed=0;
 		var level=0;
 
 		function waldo(){
 			playing=true;
-
 			let lisp = ["audio/drinking.wav","audio/spiders.wav","audio/scaring.mp3","audio/saveyou.wav"];
 			let walde = ((Math.floor(5 * Math.random())));
-
-			// uncomment to listen to audio clips from famous movies contaiining the word "eye"
-			// new Audio (lisp[walde]).play();
+			new Audio (lisp[walde]).play();
 		}
 		window.onload = function(){
 			var timestamp = null;
@@ -105,12 +103,12 @@
 					return null;
 				}
 				//console.log(level);
-				setTimeout(function(){ 
+				setTimeout(function(){
 					doIt();
 				}, 50);
 			}
 			egg.style.filter="opacity(0%)";
-			setTimeout(function(){ 
+			setTimeout(function(){
 					doIt();
 			}, 1000);
 		}
@@ -155,6 +153,9 @@
 	<div id = "credits">
 		<a href="https://icons8.com/icon/42866/eye">Eye icon by Icons8</a>
 	</div>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
 	<script type = "text/javascript">
 	var video = document.getElementById('video');
 	var canvas = document.getElementById('canvas');
