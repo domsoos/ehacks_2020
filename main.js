@@ -3,9 +3,8 @@ var canvas = document.getElementById('canvas');
 var height = canvas.height;
 var width = canvas.width;
 var context = canvas.getContext('2d');
-// tf.loadLayersModel(‘model/model.json’).then(function(model) {
-//   window.model = model;
-// });
+
+
 
 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
@@ -15,9 +14,38 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 }
 document.getElementById("snap").addEventListener("click", function() {
   var img = new Image();
+  // Turns it to grayscale image
     img.src=gray(img);
     img.onload = function () {
-      context.drawImage(img,0,0);/*
+
+      context.drawImage(img,0,0);
+
+    // Turn grayscale image into a 2D array
+    async loadLocalImage(img) {
+      return new Promise((res,rej)=>{
+      imageGet(filename, (err, info) => {
+      if(err){
+         rej(err);
+         return;
+      }
+        const image = tf.fromPixels(info.data)
+        console.log(image, '127');
+        res(image);
+      });
+    }}
+
+    // 2D array sent through our model
+    const MODEL_URL = "https://github.com/domsoos/ehacks_2020/tree/master/tfjs_model"
+    const model = await tf.loadLayersModel(MODEL_URL);
+    console.log(model.summary());
+    const input = tf.tensor2d([10.0],[1,1]);
+    // Predict if it ishealthy or not
+    const result = model.predict(input);
+    
+    // alert the results
+    alert(result);
+
+      /*
         var oc = document.createElement('canvas'),octx = oc.getContext('2d');
         oc.width = 320;
         oc.height = 280;
@@ -38,6 +66,15 @@ document.getElementById("snap").addEventListener("click", function() {
   for(var i = 0; i < data.length; i += 4) {
     input.push(data[i + 2] / 255);
   }*/
+
+      context.drawImage(img,0,0);
+    
+
+    var input = [];
+  // for(var i = 0; i < data.length; i += 4) {
+  //   input.push(data[i + 2] / 255);
+  // }
+
 
   //predict(input);
   }, false);
