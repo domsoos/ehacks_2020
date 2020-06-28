@@ -1,0 +1,56 @@
+* { box-sizing:border-box; margin:0; padding:0;border-style: none; }
+
+html, body{ 
+  scroll-behavior: smooth;
+	height:100%; 
+  width:100%; 
+}
+#head-page{
+  display:block;
+  background-color: lightblue;
+  background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F1b%2Ff8%2Fbc%2F1bf8bc815c4bd35bac0a5524eb13e09e.jpg&f=1&nofb=1);
+  background-size:cover;
+  height:100vh;
+}
+#begin-button{
+  background-color: transparent;
+  padding-top: 45vh;
+ 
+  margin: auto;
+  position: relative;
+  display: grid;
+}
+#begin-button img{
+  width:10vh;
+  height: 10vh;
+}
+
+#play-page{
+  height:100vh;
+  display:block;
+  background-color: lightcoral;
+}
+
+
+
+#text-page{
+  height:60vh;
+  display:block;
+  background-color: lightsalmon;
+  font-size: 15px;
+  text-align: center;
+}
+#text-page a{
+  display:grid;
+  margin: 5vw;
+}
+
+#contact{
+  height:100vh;
+  display:block;
+}
+
+#credits{
+  height:100vh;
+  display:block;
+}
