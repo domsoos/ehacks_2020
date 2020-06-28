@@ -10,6 +10,7 @@ html, body{
   background-color: lightblue;
   background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F1b%2Ff8%2Fbc%2F1bf8bc815c4bd35bac0a5524eb13e09e.jpg&f=1&nofb=1);
   background-size:cover;
+  background-position: center center;
   height:100vh;
 }
 #begin-button{
@@ -31,6 +32,64 @@ html, body{
   background-color: lightcoral;
 }
 
+#results-page{
+  height: 100%;
+  display: none;
+}
+#results-page a{
+  text-align: center;
+  font-size: 30px;
+}
+#my_eyes_are_red{
+  /* Are they tho? */
+  width: 100%;
+  height: 40%;
+}
+#results-page image{
+  margin-top:2%;
+  margin-bottom: 7.5%;
+  background-color: tomato;
+  display: grid;
+}
+#my_eye{
+  float: left;
+  margin-left: 5%;
+}
+#eye_chart{
+  float: right;
+  margin-right: 5%;
+}
+
+#camera-page{
+  overflow: hidden;
+  height: 100%;
+}
+#video-container{
+  float:left;
+  display: grid;
+  position: relative;
+  background-color: wheat;
+
+}
+#video, #canvas{
+  display: grid;
+  position: relative;
+}
+
+#snap{
+  background-color: transparent;
+  float: right;
+
+  margin-top:50vh;
+  margin-right:5%;
+  
+  position: relative;
+  display: grid;
+}
+#snap img{
+  width:10vh;
+  height: 10vh;
+}
 
 
 #text-page{
@@ -40,9 +99,10 @@ html, body{
   font-size: 15px;
   text-align: center;
 }
-#text-page a{
+#text-page p{
   display:grid;
-  margin: 5vw;
+  position: relative;
+  top:55px;
 }
 
 #contact{
