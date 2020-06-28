@@ -18,8 +18,8 @@ document.getElementById("snap").addEventListener("click", function() {
     img.src=gray(img);
     img.onload = function () {
         var oc = document.createElement('canvas').octx = oc.getContext('2d');
-        oc.width =320
-        oc.height = 280
+        oc.width = 320;
+        oc.height = 280;
         canvas.width = oc.width;
         canvas.height = oc.height;
         octx.drawImage(img, 0, 0, oc.width, oc.height);
