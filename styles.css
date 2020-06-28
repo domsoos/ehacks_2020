@@ -14,6 +14,7 @@ html, body{
   height:100vh;
 }
 #begin-button{
+  border-style: none;
   background-color: transparent;
   padding-top: 45vh;
  
@@ -25,11 +26,25 @@ html, body{
   width:10vh;
   height: 10vh;
 }
+#begin-button:hover{
+  padding-top: 44vh;
+}
+#begin-button img:hover{
+  width:12vh;
+  height: 12vh;
+}
+#begin-button:active{
+  padding-top: 46vh;
+}
+#begin-button img:active{
+  width:8vh;
+  height: 8vh;
+}
 
 #play-page{
   height:100vh;
   display:block;
-  background-color: lightcoral;
+  background-color: rgb(252, 206, 120);
 }
 
 #results-page{
