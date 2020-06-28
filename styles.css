@@ -70,7 +70,10 @@ html, body{
   background-color: tomato;
   display: grid;
 }
-#canvas{
+#canvas {
+  background-color: transparent;
+  height: 400px;
+  position: relative;
   float: left;
   margin-left: 5%;
 }
@@ -91,7 +94,7 @@ html, body{
   background-color: wheat;
 
 }
-#video, #canvas{
+#video {
   display: grid;
   height: 100%;
   position: relative;

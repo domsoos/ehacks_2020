@@ -21,3 +21,18 @@ document.getElementById("snap").addEventListener("click", function() {
   };
   img.src = canvas.toDataURL('image/png');
   }, false);
+
+//This is the image the user took
+const imageGet = require('get-image-data');
+async loadLocalImage(filename) {
+    return new Promise((res,rej)=>{
+    imageGet(filename, (err, info) => {
+      if(err){
+         rej(err);
+         return;
+      }
+      const image = tf.fromPixels(info.data)
+      console.log(image, '127');
+      res(image);
+    });
+  }
