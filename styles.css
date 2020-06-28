@@ -65,7 +65,8 @@ html, body{
   height: 40%;
 }
 #results-page image{
-  margin-top:2%;
+  margin-top:20%;
+  top:20px;
   margin-bottom: 7.5%;
   background-color: tomato;
   display: grid;
@@ -73,6 +74,18 @@ html, body{
 #canvas{
   float: left;
   margin-left: 5%;
+  height: 100vh;
+  background-color: turquoise;
+}
+#textResult{
+  position: relative;
+  display: block;
+  margin-top: 10px;
+  top: 10px;
+  float: center;
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'Notable',Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 #eye_chart{
   float: right;
