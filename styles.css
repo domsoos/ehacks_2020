@@ -15,6 +15,7 @@ html, body{
 }
 #begin-button{
   border-style: none;
+  outline-style: none;
   background-color: transparent;
   padding-top: 45vh;
  
