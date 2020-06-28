@@ -33,6 +33,25 @@ html, body{
   background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F65%2Fb6%2F7d%2F65b67d4691c8a6c0a37e964a41278f1d.gif&f=1&nofb=1);
   filter: opacity(6%);
 }
+#egg{
+  filter: opacity(0%);
+  font-family: 'Pangolin', cursive;
+  top:-310%;
+  height: 100%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:10%;
+
+  color:white;
+  font-size: large;
+  font-weight: bolder;
+  width: 100%;
+  display: grid;
+  position: relative;
+  display: grid;
+  background-size:cover;
+}
 #head-page-inner-div{
   top:-200%;
   height: 100%;
@@ -161,10 +180,11 @@ html, body{
   font-size: 15px;
   text-align: center;
 }
-#text-page p{
+#text-page a, #textResult{
   display:grid;
   position: relative;
   top:55px;
+  font-family: 'Notable', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 #contact{
@@ -175,4 +195,7 @@ html, body{
 #credits{
   height:100vh;
   display:block;
+}
+#sound-box{
+  display:none;
 }
