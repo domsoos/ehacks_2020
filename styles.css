@@ -26,11 +26,13 @@ html, body{
 #begin-button img{
   width:10vh;
   height: 10vh;
+  filter: brightness(100%);
 }
 #begin-button:hover{
   padding-top: 44vh;
 }
 #begin-button img:hover{
+  filter: brightness(110%);
   width:12vh;
   height: 12vh;
 }
@@ -38,6 +40,7 @@ html, body{
   padding-top: 46vh;
 }
 #begin-button img:active{
+  filter: brightness(90%);
   width:8vh;
   height: 8vh;
 }
