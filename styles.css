@@ -11,25 +11,58 @@ html, body{
   background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F1b%2Ff8%2Fbc%2F1bf8bc815c4bd35bac0a5524eb13e09e.jpg&f=1&nofb=1);
   background-size:cover;
   background-position: center center;
+  filter:opacity(100%);
   height:100vh;
 }
+.backD{
+  position: relative;
+  display: grid;
+  height: 100%;
+  width: 100%;
+  background-color: lightblue;
+  background-size:cover;
+  background-position: center center;
+  height:100vh;
+}
+#back2{
+  background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.giphy.com%2Fmedia%2FxT0xepIsg7kK2ZZO0g%2Fgiphy.gif&f=1&nofb=1);
+  filter: opacity(15%);
+}
+#back3{
+  top:-100%;
+  background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F65%2Fb6%2F7d%2F65b67d4691c8a6c0a37e964a41278f1d.gif&f=1&nofb=1);
+  filter: opacity(6%);
+}
+#head-page-inner-div{
+  top:-200%;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  position: relative;
+  display: grid;
+  background-size:cover;
+}
 #begin-button{
+  z-index: 2;
+  filter: opacity(1000%);
   border-style: none;
   outline-style: none;
   background-color: transparent;
-  padding-top: 45vh;
+  padding-top: 0;
  
   margin: auto;
   position: relative;
   display: grid;
 }
 #begin-button img{
+  z-index: 3;
   width:10vh;
   height: 10vh;
   filter: brightness(100%);
+  filter: opacity(1000%);
 }
 #begin-button:hover{
-  padding-top: 44vh;
+  padding-top: 0vh;
 }
 #begin-button img:hover{
   filter: brightness(110%);
@@ -37,7 +70,7 @@ html, body{
   height: 12vh;
 }
 #begin-button:active{
-  padding-top: 46vh;
+  padding-top: 0vh;
 }
 #begin-button img:active{
   filter: brightness(90%);
