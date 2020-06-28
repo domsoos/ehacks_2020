@@ -30,6 +30,11 @@
 	
 			}
 		}
+		function takePicture(){
+			document.getElementById("camera-page").style.display = "none";
+			document.getElementById("play-page").style.display = "block";
+
+		}
     </script>
 </head>
 <body onresize="resize()">
@@ -43,17 +48,17 @@
 		<div id="results-page">
 			<a>Your eyes... they look... BROWN</a>
 			<div id="my_eyes_are_red">
-				<canvas id="canvas" width="640" height="480"></canvas>
+				<canvas id="canvas" ></canvas>
 				<image id="my_eye" src = "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F4.bp.blogspot.com%2F-XoCPs82fiys%2FVePw_b5Q2AI%2FAAAAAAAAC24%2F_W-V5lX7JRk%2Fs1600%2Feyes%252B15.jpg&f=1&nofb=1">
 				<image id="eye_chart" src = "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F4.bp.blogspot.com%2F-XoCPs82fiys%2FVePw_b5Q2AI%2FAAAAAAAAC24%2F_W-V5lX7JRk%2Fs1600%2Feyes%252B15.jpg&f=1&nofb=1">
 			</div>
 		</div>
 		<div id="camera-page">
 			<div id="video-container">
-				<video id="video" width="640" height="480" autoplay></video>
+				<video id="video"  autoplay></video>
 			</div>
 
-			<button id="snap">
+			<button id="snap" onclick="takePicture()">
 				<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fc%2Fc3%2FCircle-icons-camera.svg%2F1024px-Circle-icons-camera.svg.png&f=1&nofb=1"/>
 			</button>
 		</div>

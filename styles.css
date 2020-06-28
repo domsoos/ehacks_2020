@@ -82,12 +82,14 @@ html, body{
 #video-container{
   float:left;
   display: grid;
+  height: 100%;
   position: relative;
   background-color: wheat;
 
 }
 #video, #canvas{
   display: grid;
+  height: 100%;
   position: relative;
 }
 
@@ -100,10 +102,16 @@ html, body{
   
   position: relative;
   display: grid;
+
 }
 #snap img{
   width:10vh;
   height: 10vh;
+  filter:grayscale(0%);
+}
+#snap img:active{
+  
+  filter:grayscale(100%);
 }
 
 
