@@ -21,7 +21,7 @@ document.getElementById("snap").addEventListener("click", function() {
       context.drawImage(img,0,0);
     }
     (async () => {
-			var MODEL_URL = "https://github.com/domsoos/ehacks_2020/tree/master/tfjs_model"
+			var MODEL_URL = 'https://domsoos.github.io/projects/tfjs_model/model.json';
 	    var model = await tf.loadLayersModel(MODEL_URL);
 			const input = tf.fromPixels(img);
       console.log(model.summary());
