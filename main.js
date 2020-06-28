@@ -36,7 +36,7 @@ document.getElementById("snap").addEventListener("click", function() {
 
     })// end Promise function
 
-    };//end loadLocalImage function
+    };// end loadLocalImage function
     
   } // end onload function
 
@@ -45,13 +45,10 @@ document.getElementById("snap").addEventListener("click", function() {
   }, false);// end snap
 
   function gray(imgObj) {
-      //var canvas = document.createElement('canvas');
-      //var context = canvas.getContext('2d');
 
       var imgW = imgObj.width;
       var imgH = imgObj.height;
-    //  canvas.width = imgW;
-      //canvas.height = imgH;
+
 
       context.drawImage(video, 0, 0,width,height);
       var imgPixels = context.getImageData(0, 0, imgW+1000, imgH+1000);
@@ -66,4 +63,4 @@ document.getElementById("snap").addEventListener("click", function() {
       }// end for
       context.putImageData(imgPixels, imgW, imgH);
       return canvas.toDataURL("image/png");
-  }// end gray
+  }// end gray function
