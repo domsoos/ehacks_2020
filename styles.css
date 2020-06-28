@@ -34,6 +34,8 @@ html, body{
   filter: opacity(6%);
 }
 #egg{
+  filter: opacity(0%);
+  font-family: 'Pangolin', cursive;
   top:-310%;
   height: 100%;
   text-align: center;

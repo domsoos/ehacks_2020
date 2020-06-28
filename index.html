@@ -98,6 +98,7 @@
 				level = (level>100)? 100:((level<0)? 0:level);
 				egg.style.filter="opacity("+level+"%)";
 				if(playing){
+					egg.style.filter="opacity(0%)";
 					return null;
 				}
 				//console.log(level);
@@ -121,7 +122,7 @@
 				<img id="eey" onload="loadEyeBall();" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fpurepng.com%2Fpublic%2Fuploads%2Flarge%2Fpurepng.com-eyeseyesorgans-of-the-visual-systemorganisms-visionoptical-systemlightfocuseslensclipart-1421526883500k8ju0.png&f=1&nofb=1"/>
 			</button>
 		</div>
-		<a id="egg">Instructions: Press the eye. Take a pic of your inner eye. Recieve a diagnosis</a>
+		<a id="egg">Press the eye. Take a pic of your inner eye. Recieve a diagnosis</a>
 	</div>
 	<div id="play-page">
 		<div id="results-page">
