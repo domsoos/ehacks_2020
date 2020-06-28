@@ -22,7 +22,10 @@
 			script.setAttribute("src", String(sources[index] + ".js"));
 			document.head.appendChild(script);
 		}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 38eb7d47cbe6318b6bd1638c8a7a7d9130da5112
 		
 
 		function setResult(val){
@@ -63,15 +66,28 @@
 
 		}
 		
+<<<<<<< HEAD
 		var playing= false;
+=======
+		var playing= false; 
+>>>>>>> 38eb7d47cbe6318b6bd1638c8a7a7d9130da5112
 		var speed=0;
 		var level=0;
 
 		function waldo(){
 			playing=true;
+<<<<<<< HEAD
 			let lisp = ["audio/drinking.wav","audio/spiders.wav","audio/scaring.mp3","audio/saveyou.wav"];
 			let walde = ((Math.floor(5 * Math.random())));
 			new Audio (lisp[walde]).play();
+=======
+
+			let lisp = ["audio/drinking.wav","audio/spiders.wav","audio/scaring.mp3","audio/saveyou.wav"];
+			let walde = ((Math.floor(5 * Math.random())));
+
+			// uncomment to listen to audio clips from famous movies contaiining the word "eye"
+			// new Audio (lisp[walde]).play();
+>>>>>>> 38eb7d47cbe6318b6bd1638c8a7a7d9130da5112
 		}
 		window.onload = function(){
 			var timestamp = null;
