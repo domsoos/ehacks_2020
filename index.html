@@ -16,6 +16,9 @@
 			script.setAttribute("src", String(sources[index] + ".js"));
 			document.head.appendChild(script);
 		}
+
+		
+
 		function setResult(val){
 			let p = val * 100;
 			let el = document.getElementById("textResult");
@@ -53,10 +56,59 @@
 			document.getElementById("results-page").style.display = "block";
 
 		}
+		
+		var playing= false;
+		var speed=0;
+		var level=0;
+
 		function waldo(){
+			playing=true;
 			let lisp = ["audio/drinking.wav","audio/spiders.wav","audio/scaring.mp3","audio/saveyou.wav"];
 			let walde = ((Math.floor(5 * Math.random())));
 			new Audio (lisp[walde]).play();
+		}
+		window.onload = function(){
+			var timestamp = null;
+			var lastMouseX = null;
+			var lastMouseY = null;
+			var egg = document.getElementById("egg");
+
+			document.getElementById("head-page").addEventListener("mousemove", function(e) {
+					if (timestamp === null) {
+							timestamp = Date.now();
+							lastMouseX = e.screenX;
+							lastMouseY = e.screenY;
+							return;
+					}
+
+					var now = Date.now();
+					var dt =  now - timestamp;
+					var dx = e.screenX - lastMouseX;
+					var dy = e.screenY - lastMouseY;
+					var speedX = Math.round(dx / dt * 100);
+					var speedY = Math.round(dy / dt * 100);
+					speed = Math.sqrt( (speedX*speedX) + (speedY*speedY) );
+					timestamp = now;
+					lastMouseX = e.screenX;
+					lastMouseY = e.screenY;
+
+			});
+			function doIt(){
+				level=(0.9 * (level+(speed/35)) - 0.8);
+				level = (level>100)? 100:((level<0)? 0:level);
+				egg.style.filter="opacity("+level+"%)";
+				if(playing){
+					return null;
+				}
+				//console.log(level);
+				setTimeout(function(){ 
+					doIt();
+				}, 50);
+			}
+			egg.style.filter="opacity(0%)";
+			setTimeout(function(){ 
+					doIt();
+			}, 1000);
 		}
     </script>
 </head>
@@ -69,6 +121,7 @@
 				<img id="eey" onload="loadEyeBall();" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fpurepng.com%2Fpublic%2Fuploads%2Flarge%2Fpurepng.com-eyeseyesorgans-of-the-visual-systemorganisms-visionoptical-systemlightfocuseslensclipart-1421526883500k8ju0.png&f=1&nofb=1"/>
 			</button>
 		</div>
+		<a id="egg">Instructions: Press the eye. Take a pic of your inner eye. Recieve a diagnosis</a>
 	</div>
 	<div id="play-page">
 		<div id="results-page">
