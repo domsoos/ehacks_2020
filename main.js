@@ -1,6 +1,7 @@
 var video = document.getElementById('video');
 var canvas = document.getElementById('canvas');
-var context = canvas.getContext('2d');
+canvas = canvas.getContext('2d');
+var image;
 
 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
@@ -9,5 +10,12 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     });
 }
 document.getElementById("snap").addEventListener("click", function() {
-	context.drawImage(video, 0, 0, 640, 480);
+	canvas.drawImage(video, 0, 0, 640, 480);
+    image = convertCanvasToImage(canvas);
 });
+
+function convertCanvasToImage(canvas) {
+	var image = new Image();
+	image.src = canvas.toDataURL("image/png");
+	return image;
+}
