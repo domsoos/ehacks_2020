@@ -1,7 +1,6 @@
 var video = document.getElementById('video');
 var canvas = document.getElementById('canvas');
 canvas = canvas.getContext('2d');
-var image;
 
 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
