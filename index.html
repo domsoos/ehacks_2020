@@ -5,7 +5,6 @@
 	<link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Notable&display=swap" rel="stylesheet">
 	<link href = "styles.css" rel = "stylesheet" type = "">
-	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
 
 	
 	<script type = "text/javascript">	
@@ -235,22 +234,8 @@
 	</div>>
 
 
-	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
-	<script type="text/javascript">
-		
-		(async () => {
-
-			const model = await tf.loadLayersModel("https://domsoos.github.io/projects/tfjs_model/model.json");
-
-			console.log(model.predict(tf.tensor2d([110], [1,1])).dataSync())
-		})();
-
-
-
-
-	</script>
-
-
+	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
+	<script type="text/javascript" src="main.js"></script>
 
 </body>
 </html>

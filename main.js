@@ -12,6 +12,14 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         video.play();
     });
 }
+
+let model = null;
+
+async function loadNeuralNet() {
+
+  model = await tf.loadLayersModel("https://domsoos.github.io/projects/tfjs_model/model.json");
+}
+
 document.getElementById("snap").addEventListener("click", function() {
   var img = new Image();
   // Turns it to grayscale image
@@ -20,16 +28,18 @@ document.getElementById("snap").addEventListener("click", function() {
 
       context.drawImage(img,0,0);
     }
-    (async () => {
-			var MODEL_URL = 'https://domsoos.github.io/projects/tfjs_model/model.json';
-	    var model = await tf.loadLayersModel(MODEL_URL);
-			const input = tf.fromPixels(img);
-      console.log(model.summary());
-      const result = model.predict(input);
-      alert(result);
-		});
+
+    loadNeuralNet();
+    console.log(predict(img).dataSync());
 
   }, false);
+
+  let predict = (r) => {
+    tensor = tf.tensor(r, [320, 280, 1], 'float32');
+    tensor = tf.expandDims(tensor, 0);
+    return model.predict(tensor);
+  };
+
 
   function gray(imgObj) {
 
